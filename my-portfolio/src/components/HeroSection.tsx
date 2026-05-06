@@ -10,7 +10,7 @@ interface HeroSectionProps {
 const cards = [
   { section: 'about' as Section, symbol: '◉', title: '網站介紹', desc: '了解這個網站的目的與功能架構', color: '#c0392b' },
   { section: 'profile' as Section, symbol: '◎', title: '個人簡介', desc: '認識我的背景、技能與興趣愛好', color: '#d4a843' },
-  { section: 'game' as Section, symbol: '◆', title: '小遊戲', desc: '來玩一場文字猜謎挑戰吧！', color: '#16a085' },
+  { section: 'game' as Section, symbol: '◆', title: '小遊戲', desc: '來玩一場貪吃蛇挑戰吧！', color: '#16a085' },
 ]
 
 export default function HeroSection({ navigateTo }: HeroSectionProps) {
