@@ -1,0 +1,189 @@
+.hero {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.hero.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.decorLine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, var(--gold), var(--accent), var(--gold));
+}
+
+.decorCorner {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  width: 80px;
+  height: 80px;
+  border-right: 3px solid var(--gold);
+  border-bottom: 3px solid var(--gold);
+  opacity: 0.4;
+}
+
+.content {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.eyebrowLine {
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: clamp(3.5rem, 12vw, 7rem);
+  font-weight: 900;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  line-height: 1;
+}
+
+.titleKanji {
+  opacity: 0;
+  display: inline-block;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.titleKanji:nth-child(1) { animation-delay: 0.1s; }
+.titleKanji:nth-child(2) { animation-delay: 0.2s; }
+.titleKanji:nth-child(3) { animation-delay: 0.3s; }
+.titleKanji:nth-child(4) { animation-delay: 0.4s; }
+
+.subtitle {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--ink);
+  opacity: 0;
+  margin-bottom: 3rem;
+  animation: fadeIn 0.8s ease 0.5s forwards;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.card {
+  background: white;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  padding: 1.75rem 1.25rem;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0 var(--ink);
+  border-color: var(--card-accent);
+}
+
+.cardSymbol {
+  font-size: 1.5rem;
+  display: block;
+}
+
+.cardTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 0.25rem;
+}
+
+.cardDesc {
+  font-size: 0.82rem;
+  color: #555;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.cardArrow {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: var(--card-accent);
+  margin-top: 0.5rem;
+  transition: transform 0.2s ease;
+  display: block;
+}
+
+.card:hover .cardArrow {
+  transform: translateX(5px);
+}
+
+@media (max-width: 640px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    gap: 0.25rem;
+  }
+}
+/* 請將這段貼在 HeroSection.module.css 的最下方 */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
